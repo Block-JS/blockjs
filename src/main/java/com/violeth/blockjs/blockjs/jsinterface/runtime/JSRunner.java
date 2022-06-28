@@ -6,18 +6,18 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.util.Scanner;
 
-public class JSRunner {
-    private static final V8 runner = V8.createV8Runtime();
+public final class JSRunner {
+    private final V8 runner = V8.createV8Runtime();
 
-    public static File file;
+    public File file;
 
     public JSRunner(File file) {
-        JSRunner.file = file;
+        this.file = file;
     }
 
-    public static @NotNull String getFileText() {
+    public @NotNull String getFileText() {
         try {
-            Scanner scanner = new Scanner(file);
+            Scanner scanner = new Scanner(this.file);
 
             StringBuilder sb = new StringBuilder();
 
@@ -32,9 +32,7 @@ public class JSRunner {
         }
     }
 
-    public static void main(String[] args) {
-        String fileText = getFileText();
-
-        Object result = runner.executeScript(fileText);
+    public Object runJS() {
+        return runner.executeScript(getFileText());
     }
 }
