@@ -1,13 +1,13 @@
 package com.violeth.blockjs.blockjs.jsinterface.runtime;
 
-import com.eclipsesource.v8.V8;
+import com.eclipsesource.v8.NodeJS;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.Scanner;
 
 public final class JSRunner {
-    private final V8 runner = V8.createV8Runtime();
+    private final NodeJS runner = NodeJS.createNodeJS();
 
     public File file;
 
@@ -32,7 +32,13 @@ public final class JSRunner {
         }
     }
 
-    public Object runJS() {
-        return runner.executeScript(getFileText());
+    public void runJS() {
+        runner.exec(file);
+
+        while (runner.isRunning()) {
+            runner.handleMessage();
+        }
+
+        runner.release();
     }
 }
