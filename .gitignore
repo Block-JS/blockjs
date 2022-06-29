@@ -120,3 +120,6 @@ run/
 
 # META-INF/
 META-INF/
+
+# Maven
+dependency-reduced-pom.xml
