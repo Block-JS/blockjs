@@ -1,7 +1,5 @@
 package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 
-import com.eclipsesource.v8.V8Array;
-import com.eclipsesource.v8.V8Object;
 import org.bukkit.Bukkit;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
