@@ -1,5 +1,6 @@
 package com.violeth.blockjs.blockjs.jsinterface.runtime;
 
+import com.violeth.blockjs.blockjs.jsinterface.JSInterface;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,13 +9,13 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-class JSRunnerTest {
+class JSInterfaceTest {
 
-    private JSRunner runner = new JSRunner(new File("src/test/resources/test.js"));
+    private JSInterface runner = new JSInterface(new File("src/test/resources/test.js"));
 
     @BeforeEach
     void setUp() {
-        runner = new JSRunner(new File("src/test/resources/test.js"));
+        runner = new JSInterface(new File("src/test/resources/test.js"));
     }
 
     @Test
