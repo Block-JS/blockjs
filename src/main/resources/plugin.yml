@@ -1,6 +1,6 @@
 name: Blockjs
-version: '${version}'
-main: com.violeth.blockjs.blockjs.Blockjs
+version: '0.1.0'
+main: com.violeth.blockjs.blockjs.BlockJS
 api-version: 1.19
 authors: [ Violet ]
 description: A Paper plugin to use JavaScript to interact with your Minecraft world
