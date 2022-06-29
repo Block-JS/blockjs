@@ -8,11 +8,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class Chat {
-    public static Object broadcast(V8Object receiver, V8Array parameters) {
-        if (parameters.length() != 0) {
-            String message = parameters.getString(0);
-            Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(Component.text(message)));
-        }
+    public static Object broadcast(String message) {
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            player.sendMessage(message);
+        });
         return null;
     }
 

@@ -47,7 +47,9 @@ public final class JSInterface {
 
     public void registerCallbacks() {
         // Chat
-        runner.getRuntime().registerJavaMethod((JavaCallback) Chat::broadcast,
-                "broadcast", "broadcast", new Class[] {String.class});
+        Chat chat = new Chat();
+
+        runner.getRuntime().registerJavaMethod(chat, "broadcast", "broadcast",
+                new Class[] { String.class });
     }
 }
