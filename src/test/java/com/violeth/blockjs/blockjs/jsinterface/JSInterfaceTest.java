@@ -1,4 +1,4 @@
-package com.violeth.blockjs.blockjs.jsinterface.runtime;
+package com.violeth.blockjs.blockjs.jsinterface;
 
 import com.violeth.blockjs.blockjs.jsinterface.JSInterface;
 import org.junit.jupiter.api.DisplayName;
