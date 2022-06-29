@@ -1,18 +1,22 @@
 package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 
+import com.eclipsesource.v8.V8Array;
+import com.eclipsesource.v8.V8Object;
 import org.bukkit.Bukkit;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class Chat {
-    public void broadcast(String message) {
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.sendMessage(Component.text(message));
+    public static Object broadcast(V8Object receiver, V8Array parameters) {
+        if (parameters.length() != 0) {
+            String message = parameters.getString(0);
+            Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(Component.text(message)));
         }
+        return null;
     }
 
-    public void whisper(String message, @NotNull Player player) {
+    public static void whisper(String message, @NotNull Player player) {
         player.sendMessage(Component.text(message));
     }
 }

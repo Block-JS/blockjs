@@ -1,9 +1,12 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
+import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.NodeJS;
+import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public final class JSInterface {
@@ -40,5 +43,11 @@ public final class JSInterface {
         }
 
         runner.release();
+    }
+
+    public void registerCallbacks() {
+        // Chat
+        runner.getRuntime().registerJavaMethod((JavaCallback) Chat::broadcast,
+                "broadcast", "broadcast", new Class[] {String.class});
     }
 }
