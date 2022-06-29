@@ -1,13 +1,9 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
-import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.NodeJS;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.lang.reflect.Array;
-import java.util.Scanner;
 
 public final class JSInterface {
     private final NodeJS runner = NodeJS.createNodeJS();
@@ -16,23 +12,6 @@ public final class JSInterface {
 
     public JSInterface(File file) {
         this.file = file;
-    }
-
-    public @NotNull String getFileText() {
-        try {
-            Scanner scanner = new Scanner(this.file);
-
-            StringBuilder sb = new StringBuilder();
-
-            while (scanner.hasNextLine()) {
-                sb.append(scanner.nextLine());
-            }
-
-            return sb.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("ENOENT: no such file or directory");
-        }
     }
 
     public void runJS() {
@@ -51,5 +30,10 @@ public final class JSInterface {
 
         runner.getRuntime().registerJavaMethod(chat, "broadcast", "broadcast",
                 new Class[] { String.class });
+    }
+
+    public void registerAndRun() {
+        registerCallbacks();
+        runJS();
     }
 }
