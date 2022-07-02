@@ -28,7 +28,7 @@ public final class JSInterface {
         // Chat
         Chat chat = new Chat();
 
-        runner.getRuntime().registerJavaMethod(chat, "broadcast", "broadcast",
+        runner.getRuntime().registerJavaMethod(chat, "broadcast", "javaBroadcast",
                 new Class[] { String.class });
     }
 
