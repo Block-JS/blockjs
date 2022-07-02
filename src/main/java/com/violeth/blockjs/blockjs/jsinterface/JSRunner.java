@@ -1,6 +1,8 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JSRunner {
     String path;
@@ -13,10 +15,18 @@ public class JSRunner {
         FileReader reader = new FileReader(path);
         File[] files = reader.getListOfFiles();
 
-        JSInterface[] interfaces = new JSInterface[files.length];
+        List<File> noNodeModules = new ArrayList<>();
 
-        for (int i = 0; i < files.length; i++) {
-            String ext = files[i].getName().substring(files[i].getName().lastIndexOf(".") + 1);
+        for (File file : files) {
+            if (!file.getParent().equals("node_modules")) {
+                noNodeModules.add(file);
+            }
+        }
+
+        JSInterface[] interfaces = new JSInterface[noNodeModules.size()];
+
+        for (int i = 0; i < noNodeModules.size(); i++) {
+            String ext = noNodeModules.get(i).getName().substring(files[i].getName().lastIndexOf(".") + 1);
 
             if (ext.equals("js")) {
                 interfaces[i] = new JSInterface(files[i]);

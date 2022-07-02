@@ -5,6 +5,7 @@ const config = [
         input: 'out/index.js',
         output: {
             file: 'dist/index.js',
+            format: 'cjs',
         }
     },
     {
