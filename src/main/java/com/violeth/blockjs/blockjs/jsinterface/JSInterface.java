@@ -1,8 +1,13 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
+import com.eclipsesource.v8.JavaCallback;
 import com.eclipsesource.v8.NodeJS;
+import com.eclipsesource.v8.V8Array;
+import com.eclipsesource.v8.V8Object;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.entitys.Players;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 
@@ -35,8 +40,27 @@ public final class JSInterface {
         // Players
         Players players = new Players();
 
-        runner.getRuntime().registerJavaMethod(players, "getPlayer", "javaGetPlayer",
-                new Class[] { String.class });
+        JavaCallback getPlayerCallback = (v8Object, v8Array) -> {
+            if (v8Array.length() == 1) {
+                String name = v8Array.getString(0);
+                Player player = players.getPlayer(name);
+
+                if (player == null) {
+                    return null;
+                }
+
+                V8Object playerObject = new V8Object(runner.getRuntime());
+
+                playerObject.add("name", player.getName());
+                playerObject.add("uuid", player.getUniqueId().toString());
+
+                return playerObject;
+            } else {
+                return null;
+            }
+        };
+
+        runner.getRuntime().registerJavaMethod(getPlayerCallback, "javaGetPlayer");
     }
 
     public void registerAndRun() {
