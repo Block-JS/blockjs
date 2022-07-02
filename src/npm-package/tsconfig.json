@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "ES2015",
     "target": "ES2015",
-    "outDir": "./dist",
+    "outDir": "./out",
     "rootDir": "./src",
     "declaration": true,
   },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.d.ts",
+      "blockjs"
+    ],
 }

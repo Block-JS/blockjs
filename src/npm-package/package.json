@@ -1,12 +1,14 @@
 {
   "name": "blockjs",
   "version": "0.1.0",
-  "type": "commonjs",
-  "dependencies": {
-  },
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && rollup --config rollup.config.js",
     "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "rollup-plugin-dts": "^4.2.2"
   }
 }
