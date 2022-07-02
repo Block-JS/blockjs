@@ -2,6 +2,7 @@ package com.violeth.blockjs.blockjs.jsinterface;
 
 import com.eclipsesource.v8.NodeJS;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
+import com.violeth.blockjs.blockjs.jsinterface.mcinterface.entitys.Players;
 
 import java.io.File;
 
@@ -29,6 +30,12 @@ public final class JSInterface {
         Chat chat = new Chat();
 
         runner.getRuntime().registerJavaMethod(chat, "broadcast", "javaBroadcast",
+                new Class[] { String.class });
+
+        // Players
+        Players players = new Players();
+
+        runner.getRuntime().registerJavaMethod(players, "getPlayer", "javaGetPlayer",
                 new Class[] { String.class });
     }
 
