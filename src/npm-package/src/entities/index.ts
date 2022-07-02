@@ -1,5 +1,5 @@
-import {getPlayer} from "./player";
+import player from './player';
 
 export default {
-    getPlayer,
+    player
 }

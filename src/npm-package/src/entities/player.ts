@@ -1,4 +1,15 @@
-export function getPlayer(id: string) {
+function getPlayer(name: string): Player {
     // @ts-ignore
-    return javaGetPlayer(id);
+    const obj: object = javaGetPlayer(name);
+
+    return obj as Player;
+}
+
+export type Player = {
+    id: string;
+    name: string;
+}
+
+export default {
+    getPlayer,
 }
