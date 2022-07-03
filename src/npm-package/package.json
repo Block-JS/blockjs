@@ -1,8 +1,13 @@
 {
-  "name": "blockjs",
-  "version": "0.1.0",
-  "type": "module",
+  "name": "blockjs-mc",
+  "version": "0.1.1",
+  "type": "commonjs",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Block-JS/blockjs.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && rollup --config rollup.config.js",
