@@ -60,7 +60,23 @@ public final class JSInterface {
             }
         };
 
+        JavaCallback getOnlinePlayersCallback = (v8Object, v8Array) -> {
+            V8Array playersArray = new V8Array(runner.getRuntime());
+
+            for (Player player : players.getOnlinePlayers()) {
+                V8Object playerObject = new V8Object(runner.getRuntime());
+
+                playerObject.add("name", player.getName());
+                playerObject.add("uuid", player.getUniqueId().toString());
+
+                playersArray.push(playerObject);
+            }
+
+            return playersArray;
+        };
+
         runner.getRuntime().registerJavaMethod(getPlayerCallback, "javaGetPlayer");
+        runner.getRuntime().registerJavaMethod(getOnlinePlayersCallback, "javaGetOnlinePlayers");
     }
 
     public void registerAndRun() {
