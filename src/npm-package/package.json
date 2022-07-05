@@ -4,6 +4,7 @@
   "type": "commonjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://block-js.github.io/documentation/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Block-JS/blockjs.git"
