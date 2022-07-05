@@ -34,8 +34,23 @@ public final class JSInterface {
         // Chat
         Chat chat = new Chat();
 
+        JavaCallback whisperCallback = (V8Object, V8Array) -> {
+            String playerName = V8Array.getString(0);
+            String message = V8Array.getString(1);
+
+            Player player = Bukkit.getPlayer(playerName);
+
+            if (player != null) {
+                player.sendMessage(message);
+            }
+
+            return null;
+        };
+
         runner.getRuntime().registerJavaMethod(chat, "broadcast", "javaBroadcast",
                 new Class[] { String.class });
+        runner.getRuntime().registerJavaMethod(whisperCallback, "javaWhisper");
+
 
         // Players
         Players players = new Players();
