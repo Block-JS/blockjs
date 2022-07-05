@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+
 
 jobs:
   npm-publish:
@@ -20,8 +22,10 @@ jobs:
         working-directory: ./src/npm-package
         run: npm install
       - name: Build
+        working-directory: ./src/npm-package
         run: npm run build
       - name: Publish
+        working-directory: ./src/npm-package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -37,9 +41,9 @@ jobs:
           java-version: '18'
           distribution: 'adopt'
       - name: Build
-        run: mvn build
+        run: mvn -B --update-snapshots build
       - name: Package
-        run: mvn package
+        run: mvn -B --update-snapshots package
 
       - name: Create draft release
         uses: actions/create-release@v1
