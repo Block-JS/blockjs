@@ -13,4 +13,20 @@ public class Players {
     public Collection<? extends Player> getOnlinePlayers() {
         return Bukkit.getOnlinePlayers();
     }
+
+    public void damage(String name, double damage) {
+        Player player = getPlayer(name);
+
+        if (player != null) {
+            player.damage(damage);
+        }
+    }
+
+    public void heal(String name, double heal) {
+        Player player = getPlayer(name);
+
+        if (player != null) {
+            player.setHealth(player.getHealth() + heal);
+        }
+    }
 }

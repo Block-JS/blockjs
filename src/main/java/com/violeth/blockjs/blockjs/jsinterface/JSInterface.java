@@ -77,6 +77,10 @@ public final class JSInterface {
 
         runner.getRuntime().registerJavaMethod(getPlayerCallback, "javaGetPlayer");
         runner.getRuntime().registerJavaMethod(getOnlinePlayersCallback, "javaGetOnlinePlayers");
+        runner.getRuntime().registerJavaMethod(players, "damage", "javaDamagePlayer",
+                new Class[] { String.class, double.class });
+        runner.getRuntime().registerJavaMethod(players, "heal", "javaHealPlayer",
+                new Class[] { String.class, double.class });
     }
 
     public void registerAndRun() {

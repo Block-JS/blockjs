@@ -12,6 +12,16 @@ function getOnlinePlayers(): Player[] {
     return obj as Player[];
 }
 
+function damagePlayer(player: Player, damage: number): void {
+    // @ts-ignore
+    javaDamagePlayer(player.name, damage);
+}
+
+function healPlayer(player: Player, health: number): void {
+    // @ts-ignore
+    javaHealPlayer(player.name, health);
+}
+
 export type Player = {
     id: string;
     name: string;
@@ -20,4 +30,6 @@ export type Player = {
 export default {
     getPlayer,
     getOnlinePlayers,
+    damagePlayer,
+    healPlayer,
 }
