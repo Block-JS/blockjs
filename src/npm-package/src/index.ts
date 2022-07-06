@@ -1,7 +1,7 @@
-import chat from './chat/index';
-import entities from './entities/index';
+import * as chat from './chat/index';
+import * as entities from './entities/index';
 
-export default {
+export {
     chat,
     entities,
 }

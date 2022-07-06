@@ -46,7 +46,7 @@ export type Player = {
     name: string;
 }
 
-export default {
+export {
     getPlayer,
     getOnlinePlayers,
     damagePlayer,

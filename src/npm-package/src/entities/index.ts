@@ -1,5 +1,5 @@
-import player from './player';
+import * as player from './player';
 
-export default {
+export {
     player
 }

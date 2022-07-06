@@ -19,7 +19,7 @@ function whisper(player: Player, message: string) {
     javaWhisper(player.name, message);
 }
 
-export default {
+export {
     broadcast,
     whisper,
 }
