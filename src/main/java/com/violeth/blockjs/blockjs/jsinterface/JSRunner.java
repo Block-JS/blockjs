@@ -14,8 +14,8 @@ public class JSRunner {
     }
 
     public void getAndRunJS() throws JavetException {
-        FileReader reader = new FileReader(path);
-        File[] files = reader.getListOfFiles();
+        FileReader reader = new FileReader();
+        File[] files = reader.getListOfFiles(path).toArray(new File[0]);
 
         List<File> noNodeModules = new ArrayList<>();
 
