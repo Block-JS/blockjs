@@ -1,6 +1,7 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
 import java.io.File;
+import java.nio.file.Path;
 
 public class FileReader {
     public String path;
@@ -10,11 +11,12 @@ public class FileReader {
     }
 
     public File[] getListOfFiles() {
-        File file = new File(path);
+        File file = new File(System.getProperty("user.dir"), "blockjs/scripts");
+
         if (file.isDirectory()) {
             return file.listFiles();
         } else {
-            throw new RuntimeException("ENOENT: no such file or directory");
+            throw new RuntimeException("Not a directory");
         }
     }
 }
