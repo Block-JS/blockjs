@@ -2,21 +2,25 @@ package com.violeth.blockjs.blockjs.jsinterface;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class FileReader {
-    public String path;
 
-    public FileReader(String path) {
-        this.path = path;
-    }
+    public List<File> getListOfFiles(String path) {
+        File file = new File(path);
 
-    public File[] getListOfFiles() {
-        File file = new File(System.getProperty("user.dir"), "blockjs/scripts");
+        List<File> files = new ArrayList<>();
 
-        if (file.isDirectory()) {
-            return file.listFiles();
-        } else {
-            throw new RuntimeException("Not a directory");
+        for (File iterfile : Objects.requireNonNull(file.listFiles())) {
+            if (iterfile.isFile()) {
+                files.add(iterfile);
+            } else if (iterfile.isDirectory()) {
+                files.addAll(getListOfFiles(iterfile.getAbsolutePath()));
+            }
         }
+
+        return files;
     }
 }
