@@ -5,7 +5,7 @@
  */
 function getPlayer(name: string): Player {
     // @ts-ignore
-    const obj: object = javaGetPlayer(name);
+    const obj: object = javaPlayers.getPlayer(name);
 
     return obj as Player;
 }
@@ -16,7 +16,7 @@ function getPlayer(name: string): Player {
  */
 function getOnlinePlayers(): Player[] {
     // @ts-ignore
-    const obj: object[] = javaGetOnlinePlayers();
+    const obj: object[] = javaPlayers.getOnlinePlayers();
 
     return obj as Player[];
 }
@@ -28,7 +28,7 @@ function getOnlinePlayers(): Player[] {
  */
 function damagePlayer(player: Player, damage: number): void {
     // @ts-ignore
-    javaDamagePlayer(player.name, damage);
+    javaPlayers.damage(player.name, damage);
 }
 
 /**
@@ -38,7 +38,7 @@ function damagePlayer(player: Player, damage: number): void {
  */
 function healPlayer(player: Player, health: number): void {
     // @ts-ignore
-    javaHealPlayer(player.name, health);
+    javaPlayers.heal(player.name, health);
 }
 
 export type Player = {
