@@ -1,5 +1,7 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
+import com.caoccao.javet.exceptions.JavetException;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ public class JSRunner {
         this.path = path;
     }
 
-    public void getAndRunJS() {
+    public void getAndRunJS() throws JavetException {
         FileReader reader = new FileReader(path);
         File[] files = reader.getListOfFiles();
 
