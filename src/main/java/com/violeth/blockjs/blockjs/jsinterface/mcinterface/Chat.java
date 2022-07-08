@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Chat {
     @V8Function
-    public static Object javaBroadcast(String message) {
+    public static Object broadcast(String message) {
         Bukkit.getOnlinePlayers().forEach(player -> {
             player.sendMessage(message);
         });
@@ -17,7 +17,7 @@ public class Chat {
     }
 
     @V8Function
-    public static void javaWhisper(String message, @NotNull Player player) {
+    public static void whisper(String message, @NotNull Player player) {
         player.sendMessage(Component.text(message));
     }
 }
