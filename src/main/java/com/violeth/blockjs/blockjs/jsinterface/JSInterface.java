@@ -4,6 +4,7 @@ import com.caoccao.javet.exceptions.JavetException;
 import com.caoccao.javet.interception.logging.JavetStandardConsoleInterceptor;
 import com.caoccao.javet.interop.NodeRuntime;
 import com.caoccao.javet.interop.V8Host;
+import com.caoccao.javet.interop.executors.IV8Executor;
 import com.caoccao.javet.values.reference.V8ValueObject;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.entities.Players;
@@ -23,7 +24,6 @@ public final class JSInterface {
             consoleInterceptor.register(runtime.getGlobalObject());
 
             // Interceptors
-
             // Chat
             Chat chat = new Chat();
 
@@ -40,7 +40,10 @@ public final class JSInterface {
                 v8ValueObject.bind(players);
             }
 
-            runtime.getExecutor(file).execute();
+            IV8Executor executor = runtime.getExecutor(file);
+            executor.setModule(true);
+
+            executor.execute();
         }
     }
 }

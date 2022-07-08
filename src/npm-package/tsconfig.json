@@ -1,18 +1,11 @@
 {
   "compilerOptions": {
-    "module": "ES2015",
-    "target": "ES2015",
+    "module": "ES6",
+    "target": "ES6",
     "outDir": "./out",
     "rootDir": "./src",
-    "declaration": true,
+    "declaration": true
   },
-    "include": [
-        "src/**/*.ts"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts",
-        "**/*.d.ts",
-      "blockjs"
-    ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.d.ts", "blockjs"]
 }

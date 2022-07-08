@@ -25,10 +25,10 @@ public class JSRunner {
             }
         }
 
-        JSInterface[] interfaces = new JSInterface[noNodeModules.size()];
+        JSInterface[] interfaces = new JSInterface[files.length];
 
-        for (int i = 0; i < noNodeModules.size(); i++) {
-            String ext = noNodeModules.get(i).getName().substring(files[i].getName().lastIndexOf(".") + 1);
+        for (int i = 0; i < files.length; i++) {
+            String ext = files[i].getName().substring(files[i].getName().lastIndexOf(".") + 1);
 
             if (ext.equals("js")) {
                 interfaces[i] = new JSInterface(files[i]);
