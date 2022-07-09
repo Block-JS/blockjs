@@ -13,11 +13,18 @@ public class FileReader {
 
         List<File> files = new ArrayList<>();
 
+        if (file.listFiles() == null) {
+            return files;
+        }
+
         for (File iterfile : Objects.requireNonNull(file.listFiles())) {
             if (iterfile.isFile()) {
-                files.add(iterfile);
+                files.add(iterfile.getAbsoluteFile());
             } else if (iterfile.isDirectory()) {
-                files.addAll(getListOfFiles(iterfile.getAbsolutePath()));
+                List<File> subfiles = getListOfFiles(iterfile.getAbsolutePath());
+                if (subfiles.size() > 0) {
+                    files.addAll(subfiles);
+                }
             }
         }
 
