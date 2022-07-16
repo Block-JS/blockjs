@@ -1,12 +1,13 @@
-name: Blockjs
-version: '0.1.0'
+name: ${project.name}
+version: ${project.version}
 main: com.violeth.blockjs.blockjs.BlockJS
 api-version: 1.19
 authors: [ Violet ]
-description: A Paper plugin to use JavaScript to interact with your Minecraft world
+description: ${project.description}
 
 commands:
   blockjs:
+    aliases: [bjs]
     description: "BlockJS command interface"
     usage: "/blockjs <command> [arguments]"
     permission: blockjs.commandinterface

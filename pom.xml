@@ -7,9 +7,14 @@
     <!-- that they should prefer consuming it instead. -->
     <!-- do_not_remove: published-with-gradle-metadata -->
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.violeth.blockjs</groupId>
     <artifactId>blockjs</artifactId>
     <version>0.2.0</version>
+
+    <name>BlockJS</name>
+    <description>A Paper plugin to use JavaScript to interact with your Minecraft world</description>
+
     <dependencies>
         <dependency>
             <groupId>com.eclipsesource.j2v8</groupId>
@@ -30,9 +35,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
+
+        <distDirectory>dist</distDirectory>
     </properties>
 
     <repositories>
@@ -43,14 +51,31 @@
     </repositories>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <outputDirectory>${distDirectory}</outputDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.3.0</version>
+
                 <configuration>
                     <!-- put your configurations here -->
                 </configuration>
+
                 <executions>
                     <execution>
                         <phase>package</phase>
