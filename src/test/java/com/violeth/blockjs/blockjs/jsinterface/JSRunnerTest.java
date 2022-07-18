@@ -8,12 +8,12 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 class JSRunnerTest {
-    private JSRunner runner = new JSRunner("src/test/resources/jsTests");
+    private JSRunner runner = new JSRunner(new File("src/test/resources/jsTests"));
 
     @Test
     @DisplayName("Runs JS without error")
     void runJS() {
-        runner = new JSRunner("src/test/resources/jsTests");
+        runner = new JSRunner(new File("src/test/resources/jsTests"));
         assertDoesNotThrow(() -> runner.getAndRunJS());
     }
 }
