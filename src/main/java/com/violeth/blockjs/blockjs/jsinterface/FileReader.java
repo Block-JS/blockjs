@@ -8,22 +8,21 @@ import java.util.Objects;
 
 public class FileReader {
 
-    public List<File> getListOfFiles(String path) {
-        File file = new File(path);
-
+    public static List<File> getListOfFiles(File folder) {
         List<File> files = new ArrayList<>();
 
-        if (file.listFiles() == null) {
+        if (folder.listFiles() == null) {
             return files;
         }
 
-        for (File iterfile : Objects.requireNonNull(file.listFiles())) {
-            if (iterfile.isFile()) {
-                files.add(iterfile.getAbsoluteFile());
-            } else if (iterfile.isDirectory()) {
-                List<File> subfiles = getListOfFiles(iterfile.getAbsolutePath());
-                if (subfiles.size() > 0) {
-                    files.addAll(subfiles);
+        for (var fsEntry : Objects.requireNonNull(folder.listFiles())) {
+            if (fsEntry.isFile()) {
+                files.add(fsEntry.getAbsoluteFile());
+            } else if (fsEntry.isDirectory()) {
+                var subFiles = getListOfFiles(fsEntry);
+
+                if (subFiles.size() > 0) {
+                    files.addAll(subFiles);
                 }
             }
         }

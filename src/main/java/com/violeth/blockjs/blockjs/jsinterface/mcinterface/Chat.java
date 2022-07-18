@@ -3,21 +3,23 @@ package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 import com.caoccao.javet.annotations.V8Function;
 import org.bukkit.Bukkit;
 import net.kyori.adventure.text.Component;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.UUID;
 
 public class Chat {
     @V8Function
-    public static Object broadcast(String message) {
+    public static final void broadcast(String message) {
         Bukkit.getOnlinePlayers().forEach(player -> {
             player.sendMessage(message);
         });
-
-        return null;
     }
 
     @V8Function
-    public static void whisper(String message, @NotNull Player player) {
-        player.sendMessage(Component.text(message));
+    public static final void whisper(String uuid, String message) {
+        var player = Bukkit.getPlayer(UUID.fromString(uuid));
+
+        if(player != null) {
+            player.sendMessage(Component.text(message));
+        }
     }
 }

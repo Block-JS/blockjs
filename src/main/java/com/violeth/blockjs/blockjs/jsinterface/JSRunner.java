@@ -1,38 +1,44 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
 import com.caoccao.javet.exceptions.JavetException;
+import com.violeth.blockjs.blockjs.BlockJS;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JSRunner {
-    String path;
+    File folder;
 
-    public JSRunner(String path) {
-        this.path = path;
+    public JSRunner(File folder) {
+        this.folder = folder;
     }
 
-    public void getAndRunJS() throws JavetException {
-        FileReader reader = new FileReader();
-        File[] files = reader.getListOfFiles(path).toArray(new File[0]);
+    public void getAndRunJS() {
+        var files = FileReader.getListOfFiles(folder).toArray(new File[0]);
 
         List<File> noNodeModules = new ArrayList<>();
 
-        for (File file : files) {
+        for (var file : files) {
             if (!file.getParent().equals("node_modules")) {
                 noNodeModules.add(file);
             }
         }
 
-        JSInterface[] interfaces = new JSInterface[files.length];
+        var interfaces = new JSExecutionInterface[files.length];
 
-        for (int i = 0; i < files.length; i++) {
-            String ext = files[i].getName().substring(files[i].getName().lastIndexOf(".") + 1);
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+
+            var ext = file.getName().substring(file.getName().lastIndexOf(".") + 1);
 
             if (ext.equals("js")) {
-                interfaces[i] = new JSInterface(files[i]);
-                interfaces[i].registerAndRun();
+                var jsInterface = new JSExecutionInterface(file.getAbsoluteFile());
+
+                interfaces[i] = jsInterface;
+
+                jsInterface.registerAndRun();
             }
         }
     }
