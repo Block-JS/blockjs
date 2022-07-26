@@ -34,6 +34,16 @@ public class Player {
         return org.bukkit.Bukkit.getOnlinePlayers();
     }
 
+    public String getPlayerNameByUUID(UUID uuid) {
+        var player = Bukkit.getPlayer(uuid);
+
+        if(player != null) {
+            return player.getName();
+        }
+
+        return null;
+    }
+
     @V8Function
     public void doDamage(String uuid, double damage) {
         var player = Bukkit.getPlayer(UUID.fromString(uuid));

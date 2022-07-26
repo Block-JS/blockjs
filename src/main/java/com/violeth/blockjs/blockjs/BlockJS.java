@@ -1,6 +1,8 @@
 package com.violeth.blockjs.blockjs;
 
 import com.caoccao.javet.interop.V8Host;
+import com.caoccao.javet.interop.executors.IV8Executor;
+import com.caoccao.javet.values.reference.V8ValueObject;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +19,10 @@ public final class BlockJS extends JavaPlugin {
                 .append(Component.text("] "));
     }
     static void makeSureScriptsFolderExists() {
+        if (!instance.getDataFolder().exists()) {
+            instance.getDataFolder().mkdir();
+        }
+
         var fsEntry = new File(instance.getDataFolder(), "scripts");
 
         if(!fsEntry.exists()) {

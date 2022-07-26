@@ -6,7 +6,7 @@ import {Player} from "../entities/player";
  */
 function broadcast(message: string) {
   // @ts-ignore
-    javaChat.broadcast(message);
+    JavaChat.broadcast(message);
 }
 
 /**
@@ -16,7 +16,7 @@ function broadcast(message: string) {
  */
 function whisper(player: Player, message: string) {
   // @ts-ignore
-    javaChat.whisper(player.name, message);
+    JavaChat.whisper(player.id, message);
 }
 
 export {

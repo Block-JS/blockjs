@@ -3,11 +3,20 @@
  * @param {string} name - Name of the player.
  * @returns {Player} - Player object.
  */
-function getPlayer(name: string): Player {
-    // @ts-ignore
-    const obj: object = javaPlayers.getPlayer(name);
+function getPlayer(name: string): Player | null {
+    // TODO: Make get player capable of getting offline players in addition to online players.
 
-    return obj as Player;
+    // @ts-ignore
+    const id: string = JavaPlayer.getOnlinePlayerUUIDByName(name);
+
+    if (id === null) {
+        return null;
+    }
+
+    return {
+        name: name,
+        id: id
+    } as Player;
 }
 
 /**
@@ -16,9 +25,26 @@ function getPlayer(name: string): Player {
  */
 function getOnlinePlayers(): Player[] {
     // @ts-ignore
-    const obj: object[] = javaPlayers.getOnlinePlayers();
+    const uuidArray: string[] | null = JavaPlayer.getOnlinePlayers();
+    // @ts-ignore
+    const nameArray: string[] | null = JavaPlayer.getOnlinePlayerNames();
 
-    return obj as Player[];
+    if (uuidArray === null || nameArray === null) {
+        return [];
+    } else if (uuidArray.length !== nameArray.length) {
+        throw new Error("Unexpected result: UUID and name arrays are not the same length.");
+    }
+
+    const players: Player[] = [];
+
+    uuidArray.forEach((uuid: string, index: number) => {
+        players.push({
+            name: nameArray[index],
+            id: uuid
+        });
+    });
+
+    return players;
 }
 
 /**
@@ -28,7 +54,7 @@ function getOnlinePlayers(): Player[] {
  */
 function damagePlayer(player: Player, damage: number): void {
     // @ts-ignore
-    javaPlayers.damage(player.name, damage);
+    JavaPlayer.doDamage(player.id, damage);
 }
 
 /**
@@ -38,7 +64,7 @@ function damagePlayer(player: Player, damage: number): void {
  */
 function healPlayer(player: Player, health: number): void {
     // @ts-ignore
-    javaPlayers.heal(player.name, health);
+    JavaPlayer.heal(player.id, health);
 }
 
 export type Player = {
