@@ -31,17 +31,17 @@ public final class JSExecutionInterface {
             {
                 try (var valueObject = runtime.createV8ValueObject()) {
                     valueObject.bind(new Chat());
-                    runtime.getGlobalObject().set("Chat", valueObject);
+                    runtime.getGlobalObject().set("JavaChat", valueObject);
                 }
 
                 try (var valueObject = runtime.createV8ValueObject()) {
                     valueObject.bind(new World());
-                    runtime.getGlobalObject().set("World", valueObject);
+                    runtime.getGlobalObject().set("JavaWorld", valueObject);
                 }
 
                 try (var valueObject = runtime.createV8ValueObject()) {
                     valueObject.bind(new Player());
-                    runtime.getGlobalObject().set("Player", valueObject);
+                    runtime.getGlobalObject().set("JavaPlayer", valueObject);
                 }
             }
 
