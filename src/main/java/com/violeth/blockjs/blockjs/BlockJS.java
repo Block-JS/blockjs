@@ -5,13 +5,23 @@ import com.caoccao.javet.interop.executors.IV8Executor;
 import com.caoccao.javet.values.reference.V8ValueObject;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.java.JavaPluginLoader;
 
 import java.io.File;
 import java.util.Objects;
 
-public final class BlockJS extends JavaPlugin {
+public class BlockJS extends JavaPlugin {
     static public BlockJS instance;
+
+    public BlockJS() {
+        super();
+    }
+
+    protected BlockJS(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
+        super(loader, description, dataFolder, file);
+    }
 
     static public Component getPluginMessagePrefix() {
         return Component.text("[")
