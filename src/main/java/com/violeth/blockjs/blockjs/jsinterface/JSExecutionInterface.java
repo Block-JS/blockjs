@@ -55,9 +55,11 @@ public final class JSExecutionInterface {
                 } catch(JavetCompilationException | JavetExecutionException e) {
                     BlockJS.instance.getLogger().log(Level.SEVERE, "There was an error with the script: " + file.getName());
                     BlockJS.instance.getLogger().log(Level.SEVERE, e.getMessage());
+                    throw new RuntimeException(e);
                 }
             } catch (IOException e) {
                 BlockJS.instance.getLogger().log(Level.SEVERE, "There was an error with reading the file: " + file.getName());
+                throw new RuntimeException(e);
             }
 
             /** Unregister stuff, clean up the global object, perform GC
@@ -70,7 +72,7 @@ public final class JSExecutionInterface {
 
             runtime.lowMemoryNotification();
         } catch(JavetException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
