@@ -19,6 +19,10 @@ public class FileReader {
             if (fsEntry.isFile()) {
                 files.add(fsEntry.getAbsoluteFile());
             } else if (fsEntry.isDirectory()) {
+                if (fsEntry.getName().equals("node_modules")) {
+                    continue;
+                }
+
                 var subFiles = getListOfFiles(fsEntry);
 
                 if (subFiles.size() > 0) {

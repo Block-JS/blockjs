@@ -48,7 +48,9 @@ public final class JSExecutionInterface {
             try {
                 var fileContent = Files.readString(file.toPath());
 
-                try (var returnedValue = runtime.getExecutor(fileContent).setModule(true).execute()) {
+                try (var returnedValue = runtime.getExecutor(file.toPath())
+                        .setModule(true)
+                        .execute()) {
                     /** TODO: handle returned value */
                 } catch(JavetCompilationException | JavetExecutionException e) {
                     BlockJS.instance.getLogger().log(Level.SEVERE, "There was an error with the script: " + file.getName());
