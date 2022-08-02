@@ -61,8 +61,6 @@ class JSExecutionInterfaceTest {
 
         NodeRuntime runtime = pool.getEngine().getV8Runtime();
 
-        runtime.getNodeModule(NodeModuleModule.class).setRequireRootDirectory(getResourceFile("jsTests").getAbsolutePath());
-
         return runtime;
     }
 
