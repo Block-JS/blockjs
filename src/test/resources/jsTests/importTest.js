@@ -1,3 +1,1 @@
-import test from './importTest-1'
-
-console.log(test());
+import test from './importTestModule.js';

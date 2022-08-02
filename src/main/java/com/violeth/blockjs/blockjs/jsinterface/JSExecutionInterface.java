@@ -4,7 +4,9 @@ import com.caoccao.javet.exceptions.JavetCompilationException;
 import com.caoccao.javet.exceptions.JavetException;
 import com.caoccao.javet.exceptions.JavetExecutionException;
 import com.caoccao.javet.interception.logging.JavetStandardConsoleInterceptor;
+import com.caoccao.javet.interop.NodeRuntime;
 import com.caoccao.javet.interop.V8Host;
+import com.caoccao.javet.interop.V8Runtime;
 import com.violeth.blockjs.blockjs.BlockJS;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Player;
@@ -18,13 +20,15 @@ import java.util.logging.Level;
 
 public final class JSExecutionInterface {
     public File file;
+    public NodeRuntime runtime;
 
-    public JSExecutionInterface(File file) {
+    public JSExecutionInterface(File file, NodeRuntime runtime) {
         this.file = file;
+        this.runtime = runtime;
     }
 
     public void registerAndRun() {
-        try (var runtime = V8Host.getNodeInstance().createV8Runtime()) {
+        try {
             var consoleInterceptor = new JavetStandardConsoleInterceptor(runtime);
             consoleInterceptor.register(runtime.getGlobalObject());
 
