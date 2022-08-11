@@ -65,4 +65,11 @@ class JSExecutionInterfaceTest {
         runner = new JSExecutionInterface(getResourceFile("jsTests/importTest.js"));
         assertDoesNotThrow(() -> runner.registerAndRun());
     }
+
+    @Test
+    @DisplayName("Can run JS with node modules")
+    void runJSWithNodeModules() {
+        runner = new JSExecutionInterface(getResourceFile("jsTests/nodeModuleTest.js"));
+        assertDoesNotThrow(() -> runner.registerAndRun());
+    }
 }
