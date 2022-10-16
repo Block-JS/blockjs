@@ -1,13 +1,13 @@
 package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 
-import com.caoccao.javet.annotations.V8Function;
+import com.eclipsesource.v8.V8Function;
+import com.violeth.blockjs.blockjs.BlockJS;
 import org.bukkit.Bukkit;
 
 import java.util.Collection;
 import java.util.UUID;
 
 public class Player {
-    @V8Function
     public String getOnlinePlayerUUIDByName(String name) {
         var player = Bukkit.getPlayer(name);
 
@@ -18,7 +18,6 @@ public class Player {
         return null;
     }
 
-    @V8Function
     public String getOfflinePlayerUUIDByName(String name) {
         var player = Bukkit.getOfflinePlayer(name);
 
@@ -29,13 +28,12 @@ public class Player {
         return null;
     }
 
-    @V8Function
     public Collection<? extends org.bukkit.entity.Player> getOnlinePlayersUUIDs() {
         return org.bukkit.Bukkit.getOnlinePlayers();
     }
 
-    public String getPlayerNameByUUID(UUID uuid) {
-        var player = Bukkit.getPlayer(uuid);
+    public String getPlayerNameByUUID(String playerUUID) {
+        var player = Bukkit.getPlayer(playerUUID);
 
         if(player != null) {
             return player.getName();
@@ -44,18 +42,16 @@ public class Player {
         return null;
     }
 
-    @V8Function
-    public void doDamage(String uuid, double damage) {
-        var player = Bukkit.getPlayer(UUID.fromString(uuid));
+    public void doDamage(String playerUUID, double damage) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
             player.damage(damage);
         }
     }
 
-    @V8Function
-    public void heal(String uuid, double heal) {
-        var player = Bukkit.getPlayer(UUID.fromString(uuid));
+    public void heal(String playerUUID, double heal) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
             player.setHealth(player.getHealth() + heal);

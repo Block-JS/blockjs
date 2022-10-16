@@ -29,9 +29,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.caoccao.javet</groupId>
-            <artifactId>javet</artifactId>
-            <version>1.1.6</version>
+            <groupId>com.eclipsesource.j2v8</groupId>
+            <artifactId>j2v8_linux_x86_64</artifactId>
+            <version>4.8.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.eclipsesource.j2v8</groupId>
+            <artifactId>j2v8_win32_x86_64</artifactId>
+            <version>4.6.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.github.seeseemelk</groupId>

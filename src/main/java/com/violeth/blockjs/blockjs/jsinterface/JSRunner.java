@@ -1,12 +1,5 @@
 package com.violeth.blockjs.blockjs.jsinterface;
 
-import com.caoccao.javet.enums.JSRuntimeType;
-import com.caoccao.javet.exceptions.JavetException;
-import com.caoccao.javet.interop.NodeRuntime;
-import com.caoccao.javet.interop.engine.IJavetEngine;
-import com.caoccao.javet.interop.engine.JavetEngineConfig;
-import com.caoccao.javet.interop.engine.JavetEnginePool;
-import com.caoccao.javet.node.modules.NodeModuleModule;
 import com.violeth.blockjs.blockjs.BlockJS;
 
 import java.io.File;
@@ -44,9 +37,9 @@ public class JSRunner {
             if (ext.equals("js")) {
                 var jsInterface = new JSExecutionInterface(file.getAbsoluteFile());
 
-                interfaces[i] = jsInterface;
+//                interfaces[i] = jsInterface;
 
-                jsInterface.registerAndRun();
+//                jsInterface.registerAndRun();
             }
         }
     }
