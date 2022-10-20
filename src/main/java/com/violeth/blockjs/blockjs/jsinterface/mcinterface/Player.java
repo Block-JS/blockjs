@@ -1,5 +1,7 @@
 package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 
+import com.eclipsesource.v8.V8;
+import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Function;
 import com.violeth.blockjs.blockjs.BlockJS;
 import org.bukkit.Bukkit;
@@ -8,6 +10,10 @@ import java.util.Collection;
 import java.util.UUID;
 
 public class Player {
+    V8 v8;
+    public Player(V8 v8) {
+        this.v8 = v8;
+    }
     public String getOnlinePlayerUUIDByName(String name) {
         var player = Bukkit.getPlayer(name);
 
@@ -28,8 +34,15 @@ public class Player {
         return null;
     }
 
-    public Collection<? extends org.bukkit.entity.Player> getOnlinePlayersUUIDs() {
-        return org.bukkit.Bukkit.getOnlinePlayers();
+    public V8Array getOnlinePlayersUUIDs() {
+        var players = org.bukkit.Bukkit.getOnlinePlayers();
+        var uuids = new V8Array(v8);
+
+        for(var playersIt = players.iterator(); playersIt.hasNext();) {
+            uuids.push(playersIt.next().getUniqueId().toString());
+        }
+
+        return uuids;
     }
 
     public String getPlayerNameByUUID(String playerUUID) {

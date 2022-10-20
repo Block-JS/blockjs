@@ -15,7 +15,7 @@ public class JSRuntimeManager {
         var runtime = node.getRuntime();
 
         {
-            var player = new Player();
+            var player = new Player(runtime);
             var playerV8 = new V8Object(runtime);
 
             playerV8.registerJavaMethod(player, "getOnlinePlayerUUIDByName", "getOnlinePlayerUUIDByName", new Class[] {
