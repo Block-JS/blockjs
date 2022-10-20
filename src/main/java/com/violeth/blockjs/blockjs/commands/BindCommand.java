@@ -84,6 +84,10 @@ public class BindCommand extends Command {
                         ));
                     }
                 }
+            } else {
+                sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
+                    Component.text("Incorrect usage! (should be: /blockjs bind <binding type> <script path>)"))
+                );
             }
         } else {
             BlockJS.instance.getLogger().log(Level.INFO, "You have to be a player to use this command!");
