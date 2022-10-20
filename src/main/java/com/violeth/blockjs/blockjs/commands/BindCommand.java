@@ -72,6 +72,9 @@ public class BindCommand extends Command {
 //                        BlockJS.instance.binds.block.add(
 //                            new BlockBind(targetBlockX, targetBlockY, targetBlockZ, scriptPath)
 //                        );
+                        sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
+                            Component.text("Script bound to block successfully!")
+                        ));
 
                         break;
                     }
