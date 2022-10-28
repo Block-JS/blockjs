@@ -46,7 +46,7 @@ public class Player {
     }
 
     public String getPlayerNameByUUID(String playerUUID) {
-        var player = Bukkit.getPlayer(playerUUID);
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if(player != null) {
             return player.getName();
