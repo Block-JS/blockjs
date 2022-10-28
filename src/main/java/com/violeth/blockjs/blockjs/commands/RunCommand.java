@@ -4,6 +4,7 @@ import com.violeth.blockjs.blockjs.BlockJS;
 import com.violeth.blockjs.blockjs.JSRuntimeManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
 import java.io.File;
@@ -32,18 +33,20 @@ public class RunCommand extends Command {
                 return;
             }
 
-            new Thread(() -> {
-                var node = JSRuntimeManager.createNodeJS();
+            var node = JSRuntimeManager.createNodeJS();
 
-                node.exec(scriptPath);
+            node.exec(scriptPath);
 
-                while(node.isRunning()) {
+            Bukkit.getScheduler().runTaskTimer(BlockJS.instance, (task) -> {
+                if(!node.isRunning()) {
+                    task.cancel();
+
+                    JSRuntimeManager.runtimes.remove(node);
+                    node.release();
+                } else {
                     node.handleMessage();
                 }
-
-                JSRuntimeManager.runtimes.remove(node);
-                node.release();
-            }).run();
+            }, 0, 1);
         } else {
             sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
                 Component.text().append(
