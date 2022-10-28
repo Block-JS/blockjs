@@ -22,6 +22,77 @@ public class Player {
             player.setGameMode(gameMode);
         }
     }
+    public void setWalkSpeed(String playerUUID, float speed) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setWalkSpeed(speed);
+        }
+    }
+    public void setFlySpeed(String playerUUID, float speed) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setFlySpeed(speed);
+        }
+    }
+    public void setFlying(String playerUUID, boolean state) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setFlying(state);
+        }
+    }
+    public void setSneaking(String playerUUID, boolean state) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setSneaking(state);
+        }
+    }
+    public void setSprinting(String playerUUID, boolean state) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setSprinting(state);
+        }
+    }
+    public void setHealth(String playerUUID, double health) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setHealth(health);
+        }
+    }
+    public void setExhaustion(String playerUUID, float exhaustion) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            player.setExhaustion(exhaustion);
+        }
+    }
+    public void setPosition(String playerUUID, double x, double y, double z) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            var location = player.getLocation();
+
+            location.setX(x);
+            location.setY(y);
+            location.setZ(z);
+        }
+    }
+    public void setVelocity(String playerUUID, double x, double y, double z) {
+        var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+
+        if (player != null) {
+            var velocity = player.getVelocity();
+
+            velocity.setX(x);
+            velocity.setY(y);
+            velocity.setZ(z);
+        }
+    }
     public String getOnlinePlayerUUIDByName(String name) {
         var player = Bukkit.getPlayer(name);
 
