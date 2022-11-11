@@ -1,0 +1,1 @@
+Chat.broadcast('Test')

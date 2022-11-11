@@ -8,8 +8,8 @@ import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.command.CommandSender;
 
 public class VersionCommand extends Command {
-    {
-        key = "version";
+    public VersionCommand() {
+        super("version");
     }
     @Override
     public void handle(CommandSender sender, String[] args) {

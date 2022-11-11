@@ -23,7 +23,7 @@ public class CommandInterface implements CommandExecutor {
             }
 
             sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
-                    Component.text("Unknown command. Type `/blockjs help` for more info")
+                Component.text("Unknown command. Type `/blockjs help` for more info")
             ));
         } else {
             sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
