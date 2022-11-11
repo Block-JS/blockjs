@@ -1,6 +1,6 @@
 package com.violeth.blockjs.blockjs.binds;
 
-import com.eclipsesource.v8.V8Function;
+import com.caoccao.javet.values.reference.V8ValueFunction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Binds {
      *      Pros: you only check one map(performance), less code */
     public List<BlockBinds> onBlockDamage = new ArrayList<>();
     public List<BlockBinds> onBlockBreak = new ArrayList<>();
-    public int addBlockDamageEventListener(int x, int y, int z, V8Function callback) {
+    public int addBlockDamageEventListener(int x, int y, int z, V8ValueFunction callback) {
         for(var blockBinds: onBlockDamage) {
             if(blockBinds.x == x && blockBinds.y == y && blockBinds.z == z) {
                 var newBlockBind = new BlockBind(nextAvailableId++, callback);
@@ -57,7 +57,7 @@ public class Binds {
 //            }
 //        }
     }
-    public int addBlockBreakEventListener(int x, int y, int z, V8Function callback) {
+    public int addBlockBreakEventListener(int x, int y, int z, V8ValueFunction callback) {
         for(var blockBinds: onBlockBreak) {
             if(blockBinds.x == x && blockBinds.y == y && blockBinds.z == z) {
                 var newBlockBind = new BlockBind(nextAvailableId++, callback);

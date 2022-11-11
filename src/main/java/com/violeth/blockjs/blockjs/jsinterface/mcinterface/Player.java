@@ -2,11 +2,6 @@ package com.violeth.blockjs.blockjs.jsinterface.mcinterface;
 
 import com.caoccao.javet.annotations.V8Function;
 import org.bukkit.Bukkit;
-import com.eclipsesource.v8.V8;
-import com.eclipsesource.v8.V8Array;
-import com.eclipsesource.v8.V8Function;
-import com.violeth.blockjs.blockjs.BlockJS;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 
 import java.util.Collection;
@@ -14,7 +9,7 @@ import java.util.UUID;
 
 public class Player {
     @V8Function
-    public void setGameMode(String playerUUID, int gameMode) {
+    public static void setGameMode(String playerUUID, int gameMode) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
         var gameModeEnumValue = GameMode.getByValue(gameMode);
 
@@ -24,7 +19,7 @@ public class Player {
     }
 
     @V8Function
-    public void setWalkSpeed(String playerUUID, float speed) {
+    public static void setWalkSpeed(String playerUUID, float speed) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -33,7 +28,7 @@ public class Player {
     }
 
     @V8Function
-    public void setFlySpeed(String playerUUID, float speed) {
+    public static void setFlySpeed(String playerUUID, float speed) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -42,7 +37,7 @@ public class Player {
     }
 
     @V8Function
-    public void setFlying(String playerUUID, boolean state) {
+    public static void setFlying(String playerUUID, boolean state) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -51,7 +46,7 @@ public class Player {
     }
 
     @V8Function
-    public void setSneaking(String playerUUID, boolean state) {
+    public static void setSneaking(String playerUUID, boolean state) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -60,7 +55,7 @@ public class Player {
     }
 
     @V8Function
-    public void setSprinting(String playerUUID, boolean state) {
+    public static void setSprinting(String playerUUID, boolean state) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -69,7 +64,7 @@ public class Player {
     }
 
     @V8Function
-    public void setHealth(String playerUUID, double health) {
+    public static void setHealth(String playerUUID, double health) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -78,7 +73,7 @@ public class Player {
     }
 
     @V8Function
-    public void setExhaustion(String playerUUID, float exhaustion) {
+    public static void setExhaustion(String playerUUID, float exhaustion) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -87,7 +82,7 @@ public class Player {
     }
 
     @V8Function
-    public void setPosition(String playerUUID, double x, double y, double z) {
+    public static void setPosition(String playerUUID, double x, double y, double z) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -100,7 +95,7 @@ public class Player {
     }
 
     @V8Function
-    public void setVelocity(String playerUUID, double x, double y, double z) {
+    public static void setVelocity(String playerUUID, double x, double y, double z) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
 
         if (player != null) {
@@ -113,7 +108,7 @@ public class Player {
     }
 
     @V8Function
-    public String getOnlinePlayerUUIDByName(String name) {
+    public static String getOnlinePlayerUUIDByName(String name) {
         var player = Bukkit.getPlayer(name);
 
         if(player != null) {
@@ -124,7 +119,7 @@ public class Player {
     }
 
     @V8Function
-    public String getOfflinePlayerUUIDByName(String name) {
+    public static String getOfflinePlayerUUIDByName(String name) {
         var player = Bukkit.getOfflinePlayer(name);
 
         if(player != null) {
@@ -135,12 +130,12 @@ public class Player {
     }
 
     @V8Function
-    public Collection<? extends org.bukkit.entity.Player> getOnlinePlayersUUIDs() {
+    public static Collection<? extends org.bukkit.entity.Player> getOnlinePlayersUUIDs() {
         return org.bukkit.Bukkit.getOnlinePlayers();
     }
 
     @V8Function
-    public String getPlayerNameByUUID(UUID uuid) {
+    public static String getPlayerNameByUUID(UUID uuid) {
         var player = Bukkit.getPlayer(uuid);
 
         if(player != null) {
@@ -151,7 +146,7 @@ public class Player {
     }
 
     @V8Function
-    public void doDamage(String uuid, double damage) {
+    public static void doDamage(String uuid, double damage) {
         var player = Bukkit.getPlayer(UUID.fromString(uuid));
 
         if (player != null) {
@@ -160,7 +155,7 @@ public class Player {
     }
 
     @V8Function
-    public void heal(String uuid, double heal) {
+    public static void heal(String uuid, double heal) {
         var player = Bukkit.getPlayer(UUID.fromString(uuid));
 
         if (player != null) {

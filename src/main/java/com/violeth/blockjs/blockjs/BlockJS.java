@@ -1,7 +1,6 @@
 package com.violeth.blockjs.blockjs;
 
-import com.eclipsesource.v8.V8Array;
-import com.eclipsesource.v8.V8Object;
+import com.caoccao.javet.exceptions.JavetException;
 import com.violeth.blockjs.blockjs.binds.Binds;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
@@ -79,13 +78,15 @@ public class BlockJS extends JavaPlugin {
                         for(var blockBindIterator = blockBindsEntrySet.iterator(); blockBindIterator.hasNext();) {
                             var blockBind = blockBindIterator.next();
 
-                            var callback = blockBind.getValue().callback;
-                            var callbackRuntime = callback.getRuntime();
+                            try (var callback = blockBind.getValue().callback) {
+                                var callbackRuntime = callback.getV8Runtime();
 
-                            callback.call(null, new V8Array(callbackRuntime).push(
-                                new V8Object(callbackRuntime)
-                                    .add("player", event.getPlayer().getUniqueId().toString())
-                            ));
+                                callback.callVoid(callbackRuntime.createV8ValueObject(), callbackRuntime.createV8ValueObject().set("player", event.getPlayer()));
+                            } catch (JavetException e) {
+                                e.printStackTrace();
+                            }
+
+                            var callback = blockBind.getValue().callback;
                         }
                     }
                 }
@@ -105,13 +106,13 @@ public class BlockJS extends JavaPlugin {
                         for(var blockBindIterator = blockBindsEntrySet.iterator(); blockBindIterator.hasNext();) {
                             var blockBind = blockBindIterator.next();
 
-                            var callback = blockBind.getValue().callback;
-                            var callbackRuntime = callback.getRuntime();
+                            try (var callback = blockBind.getValue().callback) {
+                                var callbackRuntime = callback.getV8Runtime();
 
-                            callback.call(null, new V8Array(callbackRuntime).push(
-                                new V8Object(callbackRuntime)
-                                    .add("player", event.getPlayer().getUniqueId().toString())
-                            ));
+                                callback.callVoid(callbackRuntime.createV8ValueObject(), callbackRuntime.createV8ValueObject().set("player", event.getPlayer()));
+                            } catch (JavetException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
