@@ -22,7 +22,7 @@ declare global {
 
         static getOnlinePlayerUUIDByName(name: string): string
         static getOfflinePlayerUUIDByName(name: string): string
-        static getOnlinePlayersUUIDs(): string[]
+        static getOnlinePlayersUUIDs(): UUID[]
         static getPlayerNameByUUID(playerUUID: UUID): string
 
         static doDamage(playerUUID: UUID, damage: number)

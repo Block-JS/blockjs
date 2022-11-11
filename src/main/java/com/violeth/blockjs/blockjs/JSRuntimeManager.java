@@ -21,7 +21,7 @@ public class JSRuntimeManager {
 
             playerV8.registerJavaMethod(player, "setGameMode", "setGameMode", new Class[] {
                 String.class,
-                GameMode.class
+                int.class
             });
 
             playerV8.registerJavaMethod(player, "setWalkSpeed", "setWalkSpeed", new Class[] {

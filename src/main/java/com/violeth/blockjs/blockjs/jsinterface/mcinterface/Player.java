@@ -15,11 +15,12 @@ public class Player {
     public Player(V8 v8) {
         this.v8 = v8;
     }
-    public void setGameMode(String playerUUID, GameMode gameMode) {
+    public void setGameMode(String playerUUID, int gameMode) {
         var player = Bukkit.getPlayer(UUID.fromString(playerUUID));
+        var gameModeEnumValue = GameMode.getByValue(gameMode);
 
-        if (player != null) {
-            player.setGameMode(gameMode);
+        if (player != null && gameModeEnumValue != null) {
+            player.setGameMode(gameModeEnumValue);
         }
     }
     public void setWalkSpeed(String playerUUID, float speed) {
