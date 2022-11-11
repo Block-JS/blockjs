@@ -1,6 +1,5 @@
 package com.violeth.blockjs.blockjs;
 
-import com.violeth.blockjs.blockjs.jsinterface.JSRunner;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandExecutor;
 import org.jetbrains.annotations.NotNull;
@@ -23,7 +22,7 @@ public class CommandInterface implements CommandExecutor {
             }
 
             sender.sendMessage(BlockJS.getPluginMessagePrefix().append(
-                    Component.text("Unknown command. Type `/blockjs help` for more info")
+                Component.text("Unknown command. Type `/blockjs help` for more info")
             ));
         } else {
             sender.sendMessage(BlockJS.getPluginMessagePrefix().append(

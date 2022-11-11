@@ -1,15 +1,14 @@
 package com.violeth.blockjs.blockjs.commands;
 
 import com.violeth.blockjs.blockjs.BlockJS;
-import com.violeth.blockjs.blockjs.jsinterface.JSRunner;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.command.CommandSender;
 
 public class VersionCommand extends Command {
-    {
-        key = "version";
+    public VersionCommand() {
+        super("version");
     }
     @Override
     public void handle(CommandSender sender, String[] args) {

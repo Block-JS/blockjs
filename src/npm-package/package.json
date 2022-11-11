@@ -2,8 +2,7 @@
   "name": "blockjs-mc",
   "version": "0.2.0",
   "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typeRoots": ["src/types/"],
   "homepage": "https://block-js.github.io/documentation/",
   "repository": {
     "type": "git",
