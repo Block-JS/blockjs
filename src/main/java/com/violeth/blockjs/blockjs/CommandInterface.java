@@ -1,6 +1,5 @@
 package com.violeth.blockjs.blockjs;
 
-import com.violeth.blockjs.blockjs.jsinterface.JSRunner;
 import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandExecutor;
 import org.jetbrains.annotations.NotNull;
