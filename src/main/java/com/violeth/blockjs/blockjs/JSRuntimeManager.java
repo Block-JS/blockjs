@@ -4,7 +4,6 @@ import com.eclipsesource.v8.*;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Chat;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.Player;
 import com.violeth.blockjs.blockjs.jsinterface.mcinterface.World;
-import org.bukkit.GameMode;
 
 import java.util.ArrayList;
 import java.util.List;

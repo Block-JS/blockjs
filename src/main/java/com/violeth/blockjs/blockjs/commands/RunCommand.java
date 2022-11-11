@@ -42,7 +42,10 @@ public class RunCommand extends Command {
                     task.cancel();
 
                     JSRuntimeManager.runtimes.remove(node);
-                    node.release();
+
+                    /** TODO: Make sure every listener is released, then release the actual runtime
+                     *      This probably gonna need rewriting of the event system so each runtime has list of its own event listeners */
+                    // node.release();
                 } else {
                     node.handleMessage();
                 }
