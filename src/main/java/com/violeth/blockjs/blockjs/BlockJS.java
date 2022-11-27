@@ -7,8 +7,10 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -104,6 +106,34 @@ public class BlockJS extends JavaPlugin {
                                 new V8Object(callbackRuntime)
                                     .add("player", event.getPlayer().getUniqueId().toString())
                             ));
+                        }
+                    }
+                }
+            }
+            @EventHandler
+            public void onPlayerInteract(PlayerInteractEvent event) {
+                if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+                    var block = event.getClickedBlock();
+
+                    var blockX = block.getX();
+                    var blockY = block.getY();
+                    var blockZ = block.getZ();
+
+                    for(var blockBinds: binds.onBlockInteract) {
+                        if(blockBinds.x == blockX && blockBinds.y == blockY && blockBinds.z == blockZ) {
+                            var blockBindsEntrySet = blockBinds.map.entrySet();
+
+                            for(var blockBindIterator = blockBindsEntrySet.iterator(); blockBindIterator.hasNext();) {
+                                var blockBind = blockBindIterator.next();
+
+                                var callback = blockBind.getValue().callback;
+                                var callbackRuntime = callback.getRuntime();
+
+                                callback.call(null, new V8Array(callbackRuntime).push(
+                                    new V8Object(callbackRuntime)
+                                        .add("player", event.getPlayer().getUniqueId().toString())
+                                ));
+                            }
                         }
                     }
                 }

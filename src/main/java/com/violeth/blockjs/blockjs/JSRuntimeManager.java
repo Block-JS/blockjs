@@ -125,6 +125,17 @@ public class JSRuntimeManager {
                 int.class
             });
 
+            worldV8.registerJavaMethod(world, "addBlockInteractListener", "addBlockInteractListener", new Class[] {
+                int.class,
+                int.class,
+                int.class,
+                V8Function.class
+            });
+
+            worldV8.registerJavaMethod(world, "removeBlockInteractListener", "removeBlockInteractListener", new Class[] {
+                int.class
+            });
+
             runtime.add("World", worldV8);
             worldV8.release();
         }
