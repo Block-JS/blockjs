@@ -124,6 +124,3 @@ META-INF/
 
 # Maven
 dependency-reduced-pom.xml
-
-# Node modules
-**/node_modules/
