@@ -11,6 +11,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -112,6 +113,10 @@ public class BlockJS extends JavaPlugin {
             }
             @EventHandler
             public void onPlayerInteract(PlayerInteractEvent event) {
+                /** Make sure OFF_HAND won't be handled;
+                 * WDTM: onPlayerInteract receives the same event for each hand */
+                if(event.getHand() != EquipmentSlot.HAND) return;
+
                 if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
                     var block = event.getClickedBlock();
 
