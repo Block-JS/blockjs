@@ -37,5 +37,8 @@ declare global {
 
         static addBlockBreakListener(x: number, y: number, z: number, callback: () => void): ListenerId
         static removeBlockBreakListener(id: ListenerId)
+
+        static addBlockInteractListener(x: number, y: number, z: number, callback: () => void): ListenerId
+        static removeBlockInteractListener(id: ListenerId)
     }
 }

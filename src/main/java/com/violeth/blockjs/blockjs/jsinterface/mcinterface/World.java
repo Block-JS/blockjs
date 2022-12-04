@@ -17,4 +17,11 @@ public class World {
     public void removeBlockBreakListener(int id) {
         BlockJS.instance.binds.removeBlockBreakEventListener(id);
     }
+
+    public int addBlockInteractListener(int x, int y, int z, V8Function callback) {
+        return BlockJS.instance.binds.addBlockInteractEventListener(x, y, z, callback.twin());
+    }
+    public void removeBlockInteractListener(int id) {
+        BlockJS.instance.binds.removeBlockInteractEventListener(id);
+    }
 }

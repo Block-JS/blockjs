@@ -12,6 +12,7 @@ public class Binds {
      *      Pros: you only check one map(performance), less code */
     public List<BlockBinds> onBlockDamage = new ArrayList<>();
     public List<BlockBinds> onBlockBreak = new ArrayList<>();
+    public List<BlockBinds> onBlockInteract = new ArrayList<>();
     public int addBlockDamageEventListener(int x, int y, int z, V8Function callback) {
         for(var blockBinds: onBlockDamage) {
             if(blockBinds.x == x && blockBinds.y == y && blockBinds.z == z) {
@@ -79,6 +80,35 @@ public class Binds {
     }
     public void removeBlockBreakEventListener(int id) {
         for (var blockBinds : onBlockBreak) {
+            var removedBind = blockBinds.map.remove(id);
+
+            if (removedBind != null) {
+                return;
+            }
+        }
+    }
+    public int addBlockInteractEventListener(int x, int y, int z, V8Function callback) {
+        for(var blockBinds: onBlockInteract) {
+            if(blockBinds.x == x && blockBinds.y == y && blockBinds.z == z) {
+                var newBlockBind = new BlockBind(nextAvailableId++, callback);
+
+                blockBinds.map.put(newBlockBind.id, newBlockBind);
+
+                return newBlockBind.id;
+            }
+        }
+
+        var newBlockBinds = new BlockBinds(x, y, z);
+        var newBlockBind = new BlockBind(nextAvailableId++, callback);
+
+        newBlockBinds.map.put(newBlockBind.id, newBlockBind);
+
+        onBlockInteract.add(newBlockBinds);
+
+        return newBlockBind.id;
+    }
+    public void removeBlockInteractEventListener(int id) {
+        for (var blockBinds : onBlockInteract) {
             var removedBind = blockBinds.map.remove(id);
 
             if (removedBind != null) {
