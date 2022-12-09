@@ -4,13 +4,11 @@ Thank you for your interest in contributing to BlockJS!
 
 This contribution guide will outline a few things you can do to contribute to the project.
 
-While this guideline is in the main repo for BlockJS, this also to things such as documentation.
-
 ## Issues
 
 ### Creating issues
 
-If you spot a bug or have a feature recommendation, please first make sure that there is not already an 
+If you spot a bug or have a feature recommendation, please first make sure that there is not already an
 issue open. If you find that there isn't, you can create one.
 
 ### Solving issues
@@ -24,21 +22,13 @@ to contribute to, you are welcome to open a [pull request](#pull-requests).
 ### Contributing to the code
 
 To contribute to the core code of BlockJS, you should first start by forking the repo and cloning the repo to your
-local machine. 
+local machine.
 
-From there you can make any changes you need to and commit them (you can make multiple commits if you prefer, we'll 
+From there you can make any changes you need to and commit them (you can make multiple commits if you prefer, we'll
 let GitHub squash your commits before merging).
 
 After you've made all your changes and you've commited them, you can [open a pull request](#pull-requests) to have
 your changes merged.
-
-### Contributing to the documentation
-
-Contributing to the [documentation of BlockJS](https://github.com/Block-JS/documentation) is just as important as
-contributing to the core of BlockJS.
-
-If you find a typo in the documentation, or feel like something could be better worded, you can open an issue/pull request
-to have it fixed.
 
 ### Pull Requests
 
