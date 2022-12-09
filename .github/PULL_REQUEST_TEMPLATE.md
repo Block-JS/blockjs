@@ -4,6 +4,8 @@
 
 - [ ] Feature addition
 
+- [ ] Documentation change
+
 - [ ] Refactor
 
 - [ ] Contribution guidelines related change
