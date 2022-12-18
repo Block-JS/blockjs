@@ -24,6 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: path-filter
     if: needs.path-filter.outputs.docs == 'true' || ${{github.event.action}} == 'workflow_dispatch'
+    defaults:
+      run:
+        working-directory: './documentation'
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
