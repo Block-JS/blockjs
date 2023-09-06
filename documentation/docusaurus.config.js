@@ -36,6 +36,9 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        blog: {
+          exclude: ['**/README.md'],
+        }
       }),
     ],
   ],
@@ -51,6 +54,11 @@ const config = {
             docId: 'intro',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            to: 'blog',
+            label: 'Blog',
+            position: 'left'
           },
           {
             href: 'https://github.com/Block-JS',
