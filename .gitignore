@@ -124,3 +124,5 @@ META-INF/
 
 # Maven
 dependency-reduced-pom.xml
+
+.vscode
