@@ -8,7 +8,7 @@ const config = {
   title: 'BlockJS',
   tagline: 'Use JavaScript to interact with Minecraft',
   url: 'https://block-js.github.io',
-  baseUrl: '/',
+  baseUrl: '/blocks',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
