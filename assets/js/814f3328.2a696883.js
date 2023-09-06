@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblockjs_docs=self.webpackChunkblockjs_docs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"The state of BlockJS","permalink":"/blockjs/blog/state-of-bjs"},{"title":"Welcome to the BlockJS blog!","permalink":"/blockjs/blog/blog-intro"}]}')}}]);

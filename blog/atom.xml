@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://block-js.github.io/blockjs/blog</id>
     <title>BlockJS Blog</title>
-    <updated>2023-09-05T00:00:00.000Z</updated>
+    <updated>2023-09-05T01:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://block-js.github.io/blockjs/blog"/>
     <subtitle>BlockJS Blog</subtitle>
     <icon>https://block-js.github.io/blockjs/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[The state of BlockJS]]></title>
+        <id>state-of-bjs</id>
+        <link href="https://block-js.github.io/blockjs/blog/state-of-bjs"/>
+        <updated>2023-09-05T01:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Important info on the current state of BlockJS and future plans]]></summary>
+        <content type="html"><![CDATA[<p>Hello everyone. As I'm sure all 3 or so of you watching this project have noticed, this project has remained quite dormant for a while now. This is due to a couple factors, namely of which me being one of the only developers, and trying to get a tool which has very little documentation in a language which I am neither a big fan of nor well versed in has been... frustrating.</p><p>So today, I would like to outline some of the next steps I'm planning on taking with the BlockJS project.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="return-to-development">Return to development<a class="hash-link" href="#return-to-development" title="Direct link to heading">​</a></h2><p>Firstly, I'm intending to soon return to actually developing BlockJS. I do of course have school starting soon; however, I'm hoping I'll be able to make time to actually work on the project when I'm not busy with school. Speaking of development, <strong>I am really really desperate for some help on this project!!</strong> This has by far been one of the biggest undertakings I've taken on for a hobby project, and the workload has been quite overwhelming with the main development coming from just me. So, if you have some changes that you think would be valuable to the development of BlockJS, <strong>PLEASE</strong> do not hesitate to open a pull request, I'm always happy to provide feedback if nothing else.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-rewrite">Code rewrite<a class="hash-link" href="#code-rewrite" title="Direct link to heading">​</a></h2><p>I am also planning to, in the very near future, do a complete rewrite of the BlockJS plugin codebase. I am planning for the rewrite to hopefully be in Kotlin instead of Java, as I vastly prefer it over the latter. The main issue will most likely be finding a JavaScript runtime that works well with Kotlin. Speaking of which...</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="moving-away-from-j2v8">Moving away from J2V8<a class="hash-link" href="#moving-away-from-j2v8" title="Direct link to heading">​</a></h2><p>BlockJS has been widely built on the J2V8 bindings for the V8 runtime. However, the project has been vastly unmaintained for the past 2 years, in addition to lacking a lot of features I'm desiring (namely ES6 syntax). As such I, <a href="https://github.com/Block-JS/blockjs/issues/2" target="_blank" rel="noopener noreferrer">and other users</a>, have made the recommendation to switch away from J2V8.</p><p>However this is unfortunately not as simple as it may initially seem. I have been trying for a while to use the tool <a href="https://github.com/caoccao/Javet" target="_blank" rel="noopener noreferrer">Javet</a>. Unfortunately, this tool like J2V8 is not without its caveats. It also happens to be missing many features that I want to implement into BlockJS, namely being able to import NPM modules seamlessly. While I'm sure that this is possible to do with Javet, I found the processes recommended to me to be very unwieldy, so I am currently in the process of looking for a replacement that also works well with Kotlin.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New features!<a class="hash-link" href="#new-features" title="Direct link to heading">​</a></h2><p>Finally, once these two (admittedly quite large) tasks are completed I intend to start implementation of new features into BlockJS. Some of the plans I have include:</p><ul><li><p>Many new methods</p></li><li><p>Custom commands</p></li><li><p>Event triggers</p></li><li><p>An eventual version 1.0 release!</p></li></ul><p>This is only a small taste of what I have planned for BlockJS, and I hope that you all will stick with me through this admittedly rough transition period.</p><p>-<!-- --> Violet</p>]]></content>
+        <author>
+            <name>Violet Hayes</name>
+            <email>ampc11234@gmail.com</email>
+            <uri>https://github.com/TheGreatViolet</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Welcome to the BlockJS blog!]]></title>
         <id>blog-intro</id>

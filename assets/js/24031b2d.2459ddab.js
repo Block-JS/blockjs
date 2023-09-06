@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblockjs_docs=self.webpackChunkblockjs_docs||[]).push([[711],{5718:o=>{o.exports=JSON.parse('{"permalink":"/blockjs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
