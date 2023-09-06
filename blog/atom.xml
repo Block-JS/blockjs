@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://block-js.github.io/blog</id>
+    <title>BlockJS Blog</title>
+    <updated>2023-09-06T04:57:49.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://block-js.github.io/blog"/>
+    <subtitle>BlockJS Blog</subtitle>
+    <icon>https://block-js.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[balls]]></title>
+        <id>/balls</id>
+        <link href="https://block-js.github.io/blog/balls"/>
+        <updated>2023-09-06T04:57:49.000Z</updated>
+        <summary type="html"><![CDATA[testes]]></summary>
+        <content type="html"><![CDATA[<p>testes</p>]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblockjs_docs=self.webpackChunkblockjs_docs||[]).push([[535],{5641:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"balls","permalink":"/blog/balls"}]}')}}]);
