@@ -2,19 +2,20 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>BlockJS Blog</title>
-        <link>https://block-js.github.io/blog</link>
+        <link>https://block-js.github.io/blockjs/blog</link>
         <description>BlockJS Blog</description>
-        <lastBuildDate>Wed, 06 Sep 2023 04:57:49 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 05 Sep 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[balls]]></title>
-            <link>https://block-js.github.io/blog/balls</link>
-            <guid>/balls</guid>
-            <pubDate>Wed, 06 Sep 2023 04:57:49 GMT</pubDate>
-            <description><![CDATA[testes]]></description>
-            <content:encoded><![CDATA[<p>testes</p>]]></content:encoded>
+            <title><![CDATA[Welcome to the BlockJS blog!]]></title>
+            <link>https://block-js.github.io/blockjs/blog/blog-intro</link>
+            <guid>blog-intro</guid>
+            <pubDate>Tue, 05 Sep 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[The offical blog for keeping up on new for BlockJS.]]></description>
+            <content:encoded><![CDATA[<p>Hey, welcome to the blog! Here you can find all the up-to-date info on the state of BlockJS.</p><p>While there may not be much yet, I am intending on releasing a post soon detailing the future of BlockJS and some changes I plan to make to the backend code. More to follow soon!</p><p>-<!-- --> Violet</p>]]></content:encoded>
+            <author>ampc11234@gmail.com (Violet Hayes)</author>
         </item>
     </channel>
 </rss>

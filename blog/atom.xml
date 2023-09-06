@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://block-js.github.io/blog</id>
+    <id>https://block-js.github.io/blockjs/blog</id>
     <title>BlockJS Blog</title>
-    <updated>2023-09-06T04:57:49.000Z</updated>
+    <updated>2023-09-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://block-js.github.io/blog"/>
+    <link rel="alternate" href="https://block-js.github.io/blockjs/blog"/>
     <subtitle>BlockJS Blog</subtitle>
-    <icon>https://block-js.github.io/img/favicon.ico</icon>
+    <icon>https://block-js.github.io/blockjs/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[balls]]></title>
-        <id>/balls</id>
-        <link href="https://block-js.github.io/blog/balls"/>
-        <updated>2023-09-06T04:57:49.000Z</updated>
-        <summary type="html"><![CDATA[testes]]></summary>
-        <content type="html"><![CDATA[<p>testes</p>]]></content>
+        <title type="html"><![CDATA[Welcome to the BlockJS blog!]]></title>
+        <id>blog-intro</id>
+        <link href="https://block-js.github.io/blockjs/blog/blog-intro"/>
+        <updated>2023-09-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The offical blog for keeping up on new for BlockJS.]]></summary>
+        <content type="html"><![CDATA[<p>Hey, welcome to the blog! Here you can find all the up-to-date info on the state of BlockJS.</p><p>While there may not be much yet, I am intending on releasing a post soon detailing the future of BlockJS and some changes I plan to make to the backend code. More to follow soon!</p><p>-<!-- --> Violet</p>]]></content>
+        <author>
+            <name>Violet Hayes</name>
+            <email>ampc11234@gmail.com</email>
+            <uri>https://github.com/TheGreatViolet</uri>
+        </author>
     </entry>
 </feed>
