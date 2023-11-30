@@ -1,0 +1,10 @@
+# The lower the value the more frequently script containers are going to be processed while being run in the background.
+#   Will result in visible delay if set too high.
+# Preferred values are: 1 - 5.
+tickDelay: 1
+# The maximum amount of script containers that can be run at the same time.
+# Accepted values: 1 - 4096.
+maxRunningScriptContainers: 5
+# The time in milliseconds after which the script is terminated if it hasn't responded.
+#   Setting to high values may result in crashes.
+scriptNotRespondingTimeout: 500
