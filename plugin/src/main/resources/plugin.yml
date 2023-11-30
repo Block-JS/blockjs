@@ -1,0 +1,16 @@
+name: ${project.ext["packageTitle"]}
+version: ${rootProject.version}
+main: ${project.ext["mainClass"]}
+api-version: 1.20
+authors: [
+  Violet,
+  Awesome1221
+]
+description: ${project.description}
+
+commands:
+  blockjs:
+    aliases: [bjs]
+    description: "BlockJS command interface"
+    usage: "/blockjs <command> [arguments]"
+    permission: blockjs.commandinterface
